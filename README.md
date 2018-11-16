@@ -9,5 +9,17 @@
 # AOSP build environment on Docker
 A easy to use AOSP build environment as a Docker image.
 
+# Things to remember
+This is an image which provides a **build environment** (includes any tools required for building AOSP), you should use it as a shell, then do anything you wanted. It isn't a wrapper for `Repo`, `Make` or something else.
+
 # Usage
-TODO
+Use it as a independent shell, and mount a local path to save source and result:
+```shell
+$ docker run --rm -it \
+  -v path/to/your/source/folder:/root \ # /root is reccomanded because it's the workdir
+  thnuiwelr/aosp-build-environment bash
+```
+Once you entered the shell, you can start building from [Downloading the Source#Initializing a Repo client](https://source.android.com/setup/build/downloading), every tools required is ready.
+
+# License
+GPL v3, feel free to contribute it.
