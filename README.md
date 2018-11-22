@@ -21,5 +21,14 @@ $ docker run --rm -it \
 ```
 Once you entered the shell, you can start building from [Downloading the Source#Initializing a Repo client](https://source.android.com/setup/build/downloading), every tools required is ready.
 
+You can let it run in background as well, just add your own command and `-d` option:
+```shell
+$ docker run --rm -it \
+  -v path/to/your/source/folder:/root \ # /root is reccomanded because it's the workdir
+  -d 
+  thnuiwelr/aosp-build-environment "repo --help" # Will be wrapped as "sh -c repo --help"
+```
+Running in background is pretty useful in long time buildings.
+
 # License
 GPL v3, feel free to contribute it.

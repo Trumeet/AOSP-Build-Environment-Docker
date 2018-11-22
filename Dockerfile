@@ -11,3 +11,4 @@ RUN apt-get update && \
 
 # No ENTRYPOINT or CMD be provided. You should run this image as a shell like 'docker run -it --rm <image> bash', it has a completed building environment, but maybe not supports legacy Android versions (e.g. 4.x).
 # There aren't any command to download or build sources as well, you should mount a host path to download and build them. Remember, this image only provides a build environment.
+ENTRYPOINT [ "sh", "-c" ]
