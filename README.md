@@ -30,5 +30,23 @@ $ docker run --rm -it \
 ```
 Running in background is pretty useful in long time buildings.
 
+# Building custom ROMs
+
+Some custom ROMs require extra packages to build. Here are the packages I included in the build:
+
+* bc
+
+* imagemagick
+
+* ccache
+
+In `latest` (tag) builds, these packages won't be included. If you want them to be pre-installed, switch to the tag: `extra-latest`, or execute the script to install them in one single click:
+
+```shell
+$ apt-get update
+
+$ /root/install_extra_tools.sh
+```
+
 # License
 GPL v3, feel free to contribute it.
