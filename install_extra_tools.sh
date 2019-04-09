@@ -3,7 +3,7 @@
 
 run_install() {
 	echo "[Script] Install extra tools..."
-	apt-get install -y bc imagemagick ccache
+	apt-get install -y bc imagemagick ccache schedtool
 }
 
 # For automated builds, "auto" argument will be passed.

@@ -40,6 +40,8 @@ Some custom ROMs require extra packages to build. Here are the packages I includ
 
 * ccache
 
+* schedtool
+
 In `latest` (tag) builds, these packages won't be included. If you want them to be pre-installed, switch to the tag: `extra-latest`, or execute the script to install them in one single click:
 
 ```shell
