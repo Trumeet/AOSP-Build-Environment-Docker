@@ -2,18 +2,18 @@ FROM ubuntu:16.04
 
 WORKDIR /root/
 ENV PATH="/android_build/bin:${PATH}"
-ENV INSTALL_EXTRA_TOOLS_LOCATION=/usr/bin/install_extra_tools.sh
-
-ADD ./install_extra_tools.sh $INSTALL_EXTRA_TOOLS_LOCATION
 
 RUN apt-get update && \
-    chmod a+x $INSTALL_EXTRA_TOOLS_LOCATION && \
-    $INSTALL_EXTRA_TOOLS_LOCATION auto && \
     apt-get install -y openjdk-8-jdk git-core gnupg flex bison gperf build-essential zip curl zlib1g-dev gcc-multilib g++-multilib libc6-dev-i386 lib32ncurses5-dev x11proto-core-dev libx11-dev lib32z-dev libgl1-mesa-dev libxml2-utils xsltproc unzip python && \
     mkdir -p /android_build/bin && \
     curl https://storage.googleapis.com/git-repo-downloads/repo > /android_build/bin/repo && \
     chmod a+x /android_build/bin/repo && \
     rm -rf /var/cahce/apt && \
+    rm -rf /var/lib/apt/lists
+
+RUN apt-get update && \
+    apt-get install -y bc imagemagick ccache schedtool && \
+    rm -rf /var/cache/apt && \
     rm -rf /var/lib/apt/lists
 
 # No ENTRYPOINT or CMD be provided. You should run this image as a shell like 'docker run -it --rm <image> bash', it has a completed building environment, but maybe not supports legacy Android versions (e.g. 4.x).
