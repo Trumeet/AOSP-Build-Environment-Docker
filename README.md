@@ -15,7 +15,7 @@ This is an image which provides a **build environment** (includes any tools requ
 # Usage
 Use it as a independent shell, and mount a local path to save source and result:
 ```shell
-$ docker run --rm -it \
+$ docker run -it \
   -v path/to/your/source/folder:/root \ # /root is reccomanded because it's the workdir
   thnuiwelr/aosp-build-environment bash
 ```
@@ -23,7 +23,7 @@ Once you entered the shell, you can start building from [Downloading the Source#
 
 You can let it run in background as well, just add your own command and `-d` option:
 ```shell
-$ docker run --rm -it \
+$ docker run -it \
   -v path/to/your/source/folder:/root \ # /root is reccomanded because it's the workdir
   -d 
   thnuiwelr/aosp-build-environment "repo --help" # Will be wrapped as "sh -c repo --help"
